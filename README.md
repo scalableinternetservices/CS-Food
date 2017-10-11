@@ -16,4 +16,6 @@ Team:
 
 * Nidhi Hiremath
 
+<img src="https://image.ibb.co/f4QZwG/Me1.jpg" alt="Picture of Nidhi" width="100" />
+
 * Zibin Yang
