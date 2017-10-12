@@ -19,3 +19,4 @@ Team:
 <img src="https://image.ibb.co/f4QZwG/Me1.jpg" alt="Picture of Nidhi" width="100" />
 
 * Zibin Yang
+<img src="https://scontent-sjc2-1.xx.fbcdn.net/v/t1.0-9/22222018_864336343716002_6353950344246414006_n.jpg?oh=0876c5b13a2b8c1259f67a1e1d65a49c&oe=5A874D7E" alt="Picture of Zibin" width="100" />
