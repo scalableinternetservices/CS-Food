@@ -14,6 +14,8 @@ Team:
 
 * Kirti Bhandari
 
+<img src="https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/17796460_1428886800465982_3204323996786139258_n.jpg?oh=3851a2ef8f5a26b761903f1599a3acf7&oe=5A71C373" alt="Picture of Kirti" width="100" />
+
 * Nidhi Hiremath
 
 <img src="https://image.ibb.co/f4QZwG/Me1.jpg" alt="Picture of Nidhi" width="100" />
