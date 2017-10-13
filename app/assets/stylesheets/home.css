@@ -1,20 +1,16 @@
-#particles-js
-{
-	position:fixed;
-	height:100%;
-	width:100%;
-	left:0;
-	top:0;
-	background: #a3242a;
-	z-index: -1;
+#particles-js {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #a3242a;
+    z-index: -1;
 }
 
-.h1
-{
-	z-index: 1;
-	padding: 70px 0;
-	text-align: center;
-	box-sizing: content-box;
-	margin-left: auto;
-	margin-right: auto;
+#page-title {
+    color: #ffffff;
+    z-index: 1;
+    padding: 70px;
+    text-align: center;
 }
