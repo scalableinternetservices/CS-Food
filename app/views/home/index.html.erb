@@ -5,9 +5,17 @@
     <%= javascript_include_tag "particles" %>
     <%= stylesheet_link_tag "home", media: "all" %>
   </head>
-  <body>
     <div id="particles-js"></div>
     <h1 id="page-title">CS-Food</h1>
+    <div id="logout-div">
+      <%=
+        if current_user then
+          link_to("Logout", destroy_user_session_url, :method => :delete)
+        else
+          link_to("Login", new_user_session_url)
+        end
+      %>
+    </div>
     <%= javascript_include_tag "home" %>
   </body>
 </html>
