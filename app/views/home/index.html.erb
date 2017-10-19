@@ -7,6 +7,9 @@
   </head>
     <div id="particles-js"></div>
     <h1 id="page-title">CS-Food</h1>
+    <%= link_to 'Current orders', controller: 'orders' %>
+    <%= link_to 'New order', new_order_path %>
+    
     <div id="logout-div">
       <%=
         if current_user then
