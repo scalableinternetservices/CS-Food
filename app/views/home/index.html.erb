@@ -2,16 +2,16 @@
 <%= stylesheet_link_tag "home", media: "all" %>
 <div id="particles-js"></div>
 <h1 id="page-title">CS-Food</h1>
-<%= link_to 'Current orders', controller: 'orders' %>
-<br/>
-<%= link_to 'New order', new_order_path %>
+<%= link_to 'Current orders', {controller: 'orders'}, {:class => 'btn btn-info', :role => 'button'} %>
+<br/><br/>
+<%= link_to 'New order', new_order_path, {:class => 'btn btn-info', :role => 'button'} %>
 
 <div id="logout-div">
   <%=
     if current_user then
-      link_to("Logout", destroy_user_session_url, :method => :delete)
+      link_to("Logout", destroy_user_session_url, {:method => :delete, :class => 'btn btn-info', :role => 'button'})
     else
-      link_to("Login", new_user_session_url)
+      link_to("Login", new_user_session_url, {:class => 'btn btn-info', :role => 'button'})
     end
   %>
 </div>
