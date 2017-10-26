@@ -4,13 +4,14 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-  </tr>
+    <th colspan="2"</tr>
  
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.title %></td>
       <td><%= order.text %></td>
       <td><%= link_to 'Show', order_path(order) %></td>
+      <td><%= link_to 'Edit', edit_order_path(order) %></td>
     </tr>
   <% end %>
 </table>
