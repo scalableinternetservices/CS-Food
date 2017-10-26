@@ -1,24 +1,18 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>CS-Food</title>
-    <%= javascript_include_tag "particles" %>
-    <%= stylesheet_link_tag "home", media: "all" %>
-  </head>
-    <div id="particles-js"></div>
-    <h1 id="page-title">CS-Food</h1>
-    <%= link_to 'Current orders', controller: 'orders' %>
-    <%= link_to 'New order', new_order_path %>
-    
-    <div id="logout-div">
-      <%=
-        if current_user then
-          link_to("Logout", destroy_user_session_url, :method => :delete)
-        else
-          link_to("Login", new_user_session_url)
-        end
-      %>
-    </div>
-    <%= javascript_include_tag "home" %>
-  </body>
-</html>
+<%= javascript_include_tag "particles" %>
+<%= stylesheet_link_tag "home", media: "all" %>
+<div id="particles-js"></div>
+<h1 id="page-title">CS-Food</h1>
+<%= link_to 'Current orders', controller: 'orders' %>
+<br/>
+<%= link_to 'New order', new_order_path %>
+
+<div id="logout-div">
+  <%=
+    if current_user then
+      link_to("Logout", destroy_user_session_url, :method => :delete)
+    else
+      link_to("Login", new_user_session_url)
+    end
+  %>
+</div>
+<%= javascript_include_tag "home" %>
