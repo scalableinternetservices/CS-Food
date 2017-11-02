@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.where("deliverer_id IS NULL")
   end
 
   # Show all the orders that are not fulfilled
