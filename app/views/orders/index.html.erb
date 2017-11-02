@@ -4,16 +4,19 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th colspan="2"</tr>
- 
+    <th colspan="2"></th>
+  </tr>
+
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.title %></td>
       <td><%= order.text %></td>
-      <td><%= link_to 'Show', order_path(order) %></td>
-      <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <td><%= link_to 'Show', order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
+      <td>
+        <%= link_to 'Pick', {:action => 'pick', :id => order}, {:method => :put, :class => 'btn btn-info', :role => 'button'} %>
+      </td>
     </tr>
 
   <% end %>
 </table>
-<%= link_to 'Back', home_index_path %>
+<%= link_to 'Back', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>

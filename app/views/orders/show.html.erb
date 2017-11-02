@@ -8,5 +8,16 @@
   <%= @order.text %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %>
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Owner:</strong>
+  <%= @order.user_id %>
+</p>
+
+
+<p>
+  <strong>Deliverer:</strong>
+  <%= @order.deliverer_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order), {:class => 'btn btn-info', :role => 'button'} %>
+<%= link_to 'Back', orders_path, {:class => 'btn btn-info', :role => 'button'} %>
