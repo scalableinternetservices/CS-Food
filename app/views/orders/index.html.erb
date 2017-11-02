@@ -4,7 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th colspan="2"</tr>
+    <th colspan="3"</tr>
  
   <% @orders.each do |order| %>
     <tr>
@@ -12,6 +12,9 @@
       <td><%= order.text %></td>
       <td><%= link_to 'Show', order_path(order) %></td>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <td><%= link_to 'Destroy', order_path(order),
+              method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
     </tr>
 
   <% end %>
