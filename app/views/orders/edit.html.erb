@@ -26,9 +26,9 @@
 </p>
 
 <p>
-  <%= form.submit %>
+  <%= form.submit({:class => 'btn btn-info', :role => 'button'}) %>
 </p>
 
 <% end %>
 <!-- TODO: change this path to My Orders path -->
-<%= link_to 'Cancel', orders_path %>
+<%= link_to 'Cancel', {controller: 'orders', action: 'myorders'}, {:class => 'btn btn-info', :role => 'button'} %>

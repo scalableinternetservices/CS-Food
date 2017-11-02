@@ -13,9 +13,9 @@
 <div id="logout-div">
   <%=
     if current_user then
-      link_to("Logout", destroy_user_session_url, {:method => :delete, :class => 'btn btn-info', :role => 'button'})
+      link_to('Logout', destroy_user_session_url, {:method => :delete, :class => 'btn btn-info', :role => 'button'})
     else
-      link_to("Login", new_user_session_url, {:class => 'btn btn-info', :role => 'button'})
+      link_to('Login', new_user_session_url, {:class => 'btn btn-info', :role => 'button'})
     end
   %>
 </div>

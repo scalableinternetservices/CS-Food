@@ -11,13 +11,12 @@
     <tr>
       <td><%= order.title %></td>
       <td><%= order.text %></td>
-      <td><%= link_to 'Show', order_path(order) %></td>
-<!--      <td><%= link_to 'Edit', edit_order_path(order) %></td> -->
+      <td><%= link_to 'Show', order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
       <td>
-        <%= button_to "Pick", {action: "pick", id: order}, :method => :put%>
+        <%= link_to 'Pick', {:action => 'pick', :id => order}, {:method => :put, :class => 'btn btn-info', :role => 'button'} %>
       </td>
     </tr>
 
   <% end %>
 </table>
-<%= link_to 'Back', home_index_path %>
+<%= link_to 'Back', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>
