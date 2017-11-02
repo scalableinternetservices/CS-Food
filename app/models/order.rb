@@ -1,3 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :user
+  validates :title, presence: true,
+            length: { minimum: 5, maximum: 30 }
+  belongs_to :user
 end
