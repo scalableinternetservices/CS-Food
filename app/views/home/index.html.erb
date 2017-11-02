@@ -1,8 +1,12 @@
-<%= javascript_include_tag "particles" %>
 <%= stylesheet_link_tag "home", media: "all" %>
+<%= javascript_include_tag "particles" %>
+<%= javascript_include_tag "home" %>
+
 <div id="particles-js"></div>
 <h1 id="page-title">CS-Food</h1>
-<%= link_to 'Current orders', {controller: 'orders'}, {:class => 'btn btn-info', :role => 'button'} %>
+<%= link_to 'Open orders', {controller: 'orders'}, {:class => 'btn btn-info', :role => 'button'} %>
+<br/><br/>
+<%= link_to 'My orders', {controller: 'orders', action: 'myorders'}, {:class => 'btn btn-info', :role => 'button'} %>
 <br/><br/>
 <%= link_to 'New order', new_order_path, {:class => 'btn btn-info', :role => 'button'} %>
 
@@ -15,4 +19,4 @@
     end
   %>
 </div>
-<%= javascript_include_tag "home" %>
+

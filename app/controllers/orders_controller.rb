@@ -1,12 +1,24 @@
 class OrdersController < ApplicationController
+
   def index
     @orders = Order.all
   end
-  
+
+  # Show all the orders that are not fulfilled
+  def show_all
+    @order = Order.all
+  end
+
+  # Show only one order
   def show
     @order = Order.find(params[:id])
   end
-  
+
+  # Shows only current user's order
+  def myorders
+    @orders = current_user.orders
+  end
+
   def new
     @order = Order.new
   end
