@@ -12,7 +12,13 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:id])
+
+    @order = current_user.orders.find_by_id(params[:id])
+
+    if @order == nil
+      render 'page_fault'
+    end
+
   end
 
   def create
@@ -33,6 +39,17 @@ class OrdersController < ApplicationController
       redirect_to @order
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @order = current_user.orders.find_by_id(params[:id])
+
+    if @order == nil
+      render 'page_fault'
+    else
+      @order.destroy
+      redirect_to orders_path
     end
   end
 
