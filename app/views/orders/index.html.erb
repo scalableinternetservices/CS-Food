@@ -13,7 +13,9 @@
       <td><%= order.text %></td>
       <td><%= link_to 'Show', order_path(order) %></td>
 <!--      <td><%= link_to 'Edit', edit_order_path(order) %></td> -->
-      <td>Pick</td>
+      <td>
+        <%= button_to "Pick", {action: "pick", id: order}, :method => :put%>
+      </td>
     </tr>
 
   <% end %>

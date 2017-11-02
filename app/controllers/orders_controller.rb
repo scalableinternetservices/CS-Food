@@ -1,10 +1,19 @@
 class OrdersController < ApplicationController
 
+  # Optimistic update
+  def pick
+    @order = Order.find(params[:id])
+    @order.deliverer_id = current_user.id
+    @order.save
+    redirect_to action: "index"
+  end
+
+  # Only shows orders that are not fulfilled
   def index
     @orders = Order.where("deliverer_id IS NULL")
   end
 
-  # Show all the orders that are not fulfilled
+  # Show all the orders that are not fulfilled, IS THIS USED?
   def show_all
     @order = Order.all
   end
