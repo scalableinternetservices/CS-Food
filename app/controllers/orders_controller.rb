@@ -57,6 +57,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+
+    redirect_to orders_path
+  end
+
   private
   def order_params
     params.require(:order).permit(:title, :text)
