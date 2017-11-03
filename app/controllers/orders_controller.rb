@@ -1,19 +1,11 @@
 class OrdersController < ApplicationController
 
-  # Optimistic update
-  def pick
-    @order = Order.find(params[:id])
-    @order.deliverer_id = current_user.id
-    @order.save
-    redirect_to action: "index"
-  end
-
   # Only shows orders that are not fulfilled
   def index
     @orders = Order.where("deliverer_id IS NULL")
   end
 
-  # Show all the orders that are not fulfilled, IS THIS USED?
+  # Show all the orders that are not fulfilled (UNUSED)
   def show_all
     @order = Order.all
   end
@@ -21,11 +13,6 @@ class OrdersController < ApplicationController
   # Show only one order
   def show
     @order = Order.find(params[:id])
-  end
-
-  # Shows only current user's order
-  def myorders
-    @orders = current_user.orders
   end
 
   def new
@@ -38,13 +25,12 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.create(order_params)
-     
+
     if @order.save
       redirect_to @order
     else
       render 'new'
     end
-
   end
 
   def update
@@ -55,6 +41,23 @@ class OrdersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  # Shows only current user's order
+  def myorders
+    @orders = current_user.orders
+  end
+
+  def mypicks
+    @orders = Order.where(deliverer_id: current_user.id)
+  end
+
+  # Optimistic update
+  def pick
+    @order = Order.find(params[:id])
+    @order.deliverer_id = current_user.id
+    @order.save
+    redirect_to action: "index"
   end
 
   private
