@@ -59,9 +59,12 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
-    @order.destroy
-
-    redirect_to orders_path
+    if @order.deliverer_id == nil
+      @order.destroy
+    else
+      flash[:alert] = "Can't do that"
+    end
+    redirect_to params[:continue_to] || orders_path
   end
 
   private
