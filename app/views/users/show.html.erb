@@ -1,5 +1,30 @@
 <h1>Your Profile</h1>
-<%= @user.email %>
-<%= @user.first_name %>
 
-<%= link_to "All Users' Profiles", users_path %>
+<p>
+  <strong>User Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.last_name %>
+</p>
+
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @user.birthday %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @user.phone_number %>
+</p>
+
+<%= link_to "All Users' Profiles", users_path, {:class => 'btn btn-info', :role => 'button'}%>
+<%= link_to 'Home', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>
