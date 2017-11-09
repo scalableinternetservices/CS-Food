@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
+
+  resources :users, controllers: {registrations: "registrations"}
+
   resources :orders do
     collection do
       get 'myorders'

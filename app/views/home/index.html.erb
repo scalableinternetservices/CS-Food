@@ -20,5 +20,10 @@
       link_to('Login', new_user_session_url, {:class => 'btn btn-info', :role => 'button'})
     end
   %>
+  <br/><br/>
+  <%=
+    if current_user then
+      link_to('My Profile', current_user, {:class => 'btn btn-info', :role => 'button'})
+    end
+  %>
 </div>
-
