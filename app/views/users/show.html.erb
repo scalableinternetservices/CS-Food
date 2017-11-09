@@ -26,5 +26,10 @@
   <%= @user.phone_number %>
 </p>
 
+<p>
+  <strong>Points:</strong>
+  <%= @user.points %>
+</p>
+
 <%= link_to "All Users' Profiles", users_path, {:class => 'btn btn-info', :role => 'button'}%>
 <%= link_to 'Home', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>

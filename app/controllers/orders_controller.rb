@@ -27,6 +27,8 @@ class OrdersController < ApplicationController
     @order = current_user.orders.create(order_params)
 
     if @order.save
+      points_difference = current_user.points - @order.points
+      current_user.update_attribute(:points, points_difference)
       redirect_to @order
     else
       render 'new'
@@ -35,8 +37,13 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-
+    old_order_points = @order.points
     if @order.update(order_params)
+      # TODO: Logic is incorrect
+      points_difference = old_order_points - @order.points
+      print points_difference
+      updated_points = current_user.points + points_difference
+      current_user.update_attribute(:points, updated_points)
       redirect_to @order
     else
       render 'edit'
@@ -62,6 +69,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:title, :text)
+    params.require(:order).permit(:title, :text, :points)
   end
 end

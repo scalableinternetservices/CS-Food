@@ -1,6 +1,6 @@
 <h1>Edit Order</h1>
 
-<%= form_with(model: @order) do |form| %>
+<%= form_with scope: :order, url: orders_path, local: true do |form| %>
 
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -23,6 +23,11 @@
 <p>
   <%= form.label :text %><br>
   <%= form.text_area :text %>
+</p>
+
+<p>
+  <%= form.label :points %><br>
+  <%= form.number_field :points %>
 </p>
 
 <p>
