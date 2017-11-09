@@ -35,7 +35,7 @@ gem 'devise'
 gem 'validates_timeliness', '~> 4.0'
 
 gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '<10.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
