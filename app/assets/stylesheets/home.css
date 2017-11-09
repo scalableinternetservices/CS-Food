@@ -12,7 +12,7 @@
     color: #ffffff;
     z-index: 1;
     padding: 70px;
-    text-align: center;
+    align-content: center;
 }
 
 #logout-div {
@@ -20,4 +20,6 @@
     top:0;
     right:0;
     padding:20px;
+    float: right;
+    text-align: right;
 }
