@@ -52,6 +52,7 @@ class OrdersController < ApplicationController
       flash[:alert] = "Can't do that"
     end
     redirect_to params[:continue_to] || orders_path
+    end
 
   # Shows only current user's order
   def myorders
