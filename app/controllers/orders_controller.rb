@@ -27,6 +27,8 @@ class OrdersController < ApplicationController
     @order = current_user.orders.create(order_params)
 
     if @order.save
+      points_difference = current_user.points - @order.points
+      current_user.update_attribute(:points, points_difference)
       redirect_to @order
     else
       render 'new'
@@ -35,7 +37,6 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-
     if @order.update(order_params)
       redirect_to @order
     else
@@ -74,6 +75,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:title, :text)
+    params.require(:order).permit(:title, :text, :points)
   end
 end

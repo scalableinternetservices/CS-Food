@@ -4,6 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Points</th>
     <th colspan="2"></th>
   </tr>
 
@@ -11,6 +12,7 @@
       <tr>
         <td><%= order.title %></td>
         <td><%= order.text %></td>
+        <td><%= order.points %></td>
         <td><%= link_to 'Show', order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
       </tr>
 
