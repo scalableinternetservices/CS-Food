@@ -42,13 +42,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar %>
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
     </div>
 
     <br>
