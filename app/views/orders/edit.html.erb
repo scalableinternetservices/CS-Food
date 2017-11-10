@@ -1,19 +1,19 @@
 <h1>Edit Order</h1>
 
-<%= form_with scope: :order, url: orders_path, local: true do |form| %>
+<%= form_with(model: @order) do |form| %>
 
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@order.errors.count, "error") %> prohibited this order from being updated:
-      </h2>
-      <ul>
-        <% @order.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@order.errors.count, "error") %> prohibited this order from being updated:
+          </h2>
+          <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
 <p>
   <%= form.label :title %><br>
@@ -23,11 +23,6 @@
 <p>
   <%= form.label :text %><br>
   <%= form.text_area :text %>
-</p>
-
-<p>
-  <%= form.label :points %><br>
-  <%= form.number_field :points %>
 </p>
 
 <p>
