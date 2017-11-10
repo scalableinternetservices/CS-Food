@@ -43,6 +43,16 @@ class OrdersController < ApplicationController
     end
   end
 
+
+  def destroy
+    @order = Order.find(params[:id])
+    if @order.deliverer_id == nil
+      @order.destroy
+    else
+      flash[:alert] = "Can't do that"
+    end
+    redirect_to params[:continue_to] || orders_path
+
   # Shows only current user's order
   def myorders
     @orders = current_user.orders
@@ -58,6 +68,7 @@ class OrdersController < ApplicationController
     @order.deliverer_id = current_user.id
     @order.save
     redirect_to action: "index"
+
   end
 
   private
