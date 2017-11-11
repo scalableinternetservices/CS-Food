@@ -1,6 +1,6 @@
 <h1>Your Profile</h1>
 
-<%= image_tag 'https://s3-us-west-2.amazonaws.com/cs-food-b1/users/avatars/000/000/003/original/Me.jpg', {id: 'profile-pic'} %>
+<%= image_tag @user.avatar.url, {id: 'profile-pic'} %>
 
 <p>
   <strong>User Email:</strong>
