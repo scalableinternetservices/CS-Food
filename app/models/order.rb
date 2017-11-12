@@ -11,4 +11,5 @@ class Order < ApplicationRecord
   end
 
   belongs_to :user
+  delegate :username, to: :user, prefix: true
 end
