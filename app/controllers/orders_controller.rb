@@ -37,11 +37,13 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to @order
+    if @order.deliverer_id != nil
+      flash[:alert] = "Can't do that"
+    elsif @order.update(order_params)
     else
       render 'edit'
     end
+    redirect_to @order
   end
 
   def destroy
@@ -56,11 +58,11 @@ class OrdersController < ApplicationController
 
   # Shows only current user's order
   def myorders
-    @orders = current_user.orders
+    @orders = current_user.orders.where(delivered_at: nil)
   end
 
   def mypicks
-    @orders = Order.where(deliverer_id: current_user.id).where("delivered_at IS NULL")
+    @orders = Order.where(deliverer_id: current_user.id, delivered_at: nil)
   end
 
   # Optimistic update
@@ -74,6 +76,12 @@ class OrdersController < ApplicationController
   def myhistory
     @my_orders = Order.where(user_id: current_user.id).where("delivered_at IS NOT NULL")
     @my_picks = Order.where(deliverer_id: current_user.id).where("delivered_at IS NOT NULL")
+
+  def receive
+    @order = Order.find(params[:id])
+    @order.delivered_at = Time.now.getutc
+    @order.save
+    redirect_to myorders_orders_path
   end
 
   private

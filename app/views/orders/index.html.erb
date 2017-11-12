@@ -1,10 +1,11 @@
-<h1>Listing Orders</h1>
+<h1>Listing Open Orders</h1>
 
 <table class="table table-striped table-bordered">
   <tr>
     <th>Title</th>
     <th>Text</th>
     <th>Points</th>
+    <th>Owner</th>
     <th colspan="2"></th>
   </tr>
 
@@ -13,6 +14,7 @@
       <td><%= order.title %></td>
       <td><%= order.text %></td>
       <td><%= order.points %></td>
+      <td><%= order.user.username%></td>
       <td><%= link_to 'Show', order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
       <% if order.deliverer_id == nil && order.user_id != current_user.id %>
       <td>

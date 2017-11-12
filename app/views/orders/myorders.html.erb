@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Text</th>
     <th>Points</th>
+    <th>Deliverer</th>
     <th colspan="2"></th>
   </tr>
 
@@ -13,9 +14,15 @@
         <td><%= order.title %></td>
         <td><%= order.text %></td>
         <td><%= order.points %></td>
+        <% if order.deliverer_id? %>
+            <td><%= User.find(order.deliverer_id).username %></td>
+        <% else %>
+          <td> None </td>
+        <% end %>
         <td><%= link_to 'Show', order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
         <td><%= link_to 'Edit', edit_order_path(order), {:class => 'btn btn-info', :role => 'button'} %></td>
         <td><%= link_to 'Delete', order_path(order, continue_to: myorders_orders_path), :method => :delete, :class => 'btn btn-info', :role => 'button' %></td>
+	<td><%= link_to 'Mark Received', {:action => 'receive', :id => order}, {:method => :put, :class => 'btn btn-info', :role => 'button'} %></td>
       </tr>
 
   <% end %>
