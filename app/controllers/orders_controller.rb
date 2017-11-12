@@ -46,7 +46,6 @@ class OrdersController < ApplicationController
     redirect_to @order
   end
 
-
   def destroy
     @order = Order.find(params[:id])
     if @order.deliverer_id == nil
@@ -73,6 +72,10 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to action: "index"
   end
+
+  def myhistory
+    @my_orders = Order.where(user_id: current_user.id).where("delivered_at IS NOT NULL")
+    @my_picks = Order.where(deliverer_id: current_user.id).where("delivered_at IS NOT NULL")
 
   def receive
     @order = Order.find(params[:id])
