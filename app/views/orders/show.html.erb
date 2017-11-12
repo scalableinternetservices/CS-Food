@@ -25,7 +25,11 @@
 
 <p>
   <strong>Deliverer:</strong>
-  <%= User.find(@order.deliverer_id).username %>
+  <% if @order.deliverer_id? %>
+    <%= User.find(@order.deliverer_id).username %>
+  <% else %>
+    None
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order), {:class => 'btn btn-info', :role => 'button'} %>
