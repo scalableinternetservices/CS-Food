@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'devise'
 gem 'validates_timeliness', '~> 4.0'
 
+gem 'paperclip'
+gem 'aws-sdk', '<10.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

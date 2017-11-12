@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20171109095422) do
     t.string "birthday"
     t.string "phone_number"
     t.string "username"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer "points", default: 1000
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
