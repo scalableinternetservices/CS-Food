@@ -37,11 +37,13 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to @order
+    if @order.deliverer_id != nil
+      flash[:alert] = "Can't do that"
+    elsif @order.update(order_params)
     else
       render 'edit'
     end
+    redirect_to @order
   end
 
 
@@ -57,11 +59,11 @@ class OrdersController < ApplicationController
 
   # Shows only current user's order
   def myorders
-    @orders = current_user.orders
+    @orders = current_user.orders.where(delivered_at: nil)
   end
 
   def mypicks
-    @orders = Order.where(deliverer_id: current_user.id)
+    @orders = Order.where(deliverer_id: current_user.id, delivered_at: nil)
   end
 
   # Optimistic update
@@ -70,7 +72,13 @@ class OrdersController < ApplicationController
     @order.deliverer_id = current_user.id
     @order.save
     redirect_to action: "index"
+  end
 
+  def receive
+    @order = Order.find(params[:id])
+    @order.delivered_at = Time.now.getutc
+    @order.save
+    redirect_to myorders_orders_path
   end
 
   private

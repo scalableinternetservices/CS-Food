@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     member do
       put 'pick'
     end
+    member do
+      put 'receive'
+    end
     collection do
       get 'mypicks'
     end
