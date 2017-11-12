@@ -27,5 +27,5 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     get item_url(@item)
     assert_response :success
   end
-  
+
 end

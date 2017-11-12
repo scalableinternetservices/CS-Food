@@ -3,6 +3,9 @@ require 'validates_timeliness'
 class User < ApplicationRecord
   attr_accessor :login
 
+  has_many :user_menus
+  has_many :items, through: :user_menus
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
