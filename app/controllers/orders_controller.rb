@@ -42,8 +42,8 @@ class OrdersController < ApplicationController
     elsif @order.update(order_params)
     else
       render 'edit'
-    redirect_to @order
     end
+    redirect_to @order
   end
 
 
