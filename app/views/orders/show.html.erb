@@ -19,8 +19,13 @@
 </p>
 
 <p>
+  <strong>Owner:</strong>
+  <%= @order.user.username%>
+</p>
+
+<p>
   <strong>Deliverer:</strong>
-  <%= @order.deliverer_id %>
+  <%= User.find(@order.deliverer_id).username %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order), {:class => 'btn btn-info', :role => 'button'} %>
