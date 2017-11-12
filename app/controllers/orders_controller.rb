@@ -39,12 +39,10 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     if @order.deliverer_id != nil
       flash[:alert] = "Can't do that"
-      redirect_to @order
     elsif @order.update(order_params)
-      redirect_to @order
     else
       render 'edit'
-      redirect_to @order
+    redirect_to @order
     end
   end
 
