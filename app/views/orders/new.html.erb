@@ -5,33 +5,64 @@
     <% if @order.errors.any? %>
         <div id="error_explanation">
           <h2>
-            <%= pluralize(@order.errors.count,"error") %> prohibited this order from being created:
+            <%= pluralize(@order.errors.count, "error") %> prohibited this order from being created:
           </h2>
           <ul>
             <% @order.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
+                <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
     <% end %>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </p>
 
-  <p>
-    <%= form.label :points %><br>
-    <%= form.number_field :points%>
-  </p>
- 
-  <p>
-    <%= form.submit({:class => 'btn btn-info', :role => 'button'}) %>
-  </p>
+    <p>
+      <%= form.label :text %><br>
+      <%= form.text_area :text %>
+    </p>
+
+    <p>
+      <%= form.label :first_item %>
+      <%= form.select :item_1, Item.all.pluck(:name), :prompt => 'Select One' %><br>
+    <p>'Or Enter A New Item!'</p>
+      <%= form.text_field :item_1_text %>
+    </p>
+
+    <p>
+      <%= form.label :second_item %>
+      <%= form.select :item_2, Item.all.pluck(:name), :prompt => 'Select One' %><br>
+      <%= form.text_field :item_2_text %>
+    </p>
+
+    <p>
+      <%= form.label :third_item %>
+      <%= form.select :item_3, Item.all.pluck(:name), :prompt => 'Select One' %><br>
+      <%= form.text_field :item_3_text %>
+    </p>
+
+    <p>
+      <%= form.label :fourth_item %>
+      <%= form.select :item_4, Item.all.pluck(:name), :prompt => 'Select One' %><br>
+      <%= form.text_field :item_4_text %>
+    </p>
+
+    <p>
+      <%= form.label :fifth_item %>
+      <%= form.select :item_5, Item.all.pluck(:name), :prompt => 'Select One' %><br>
+      <%= form.text_field :item_5_text %>
+    </p>
+
+    <p>
+      <%= form.label :points %><br>
+      <%= form.number_field :points %>
+    </p>
+
+    <p>
+      <%= form.submit({:class => 'btn btn-info', :role => 'button'}) %>
+    </p>
 <% end %>
 <%= link_to 'Cancel', orders_path, {:class => 'btn btn-info', :role => 'button'} %>

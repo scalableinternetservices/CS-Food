@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+  resources :items, except: [:destroy, :edit, :update]
   devise_for :users
   get 'home/index'
 
