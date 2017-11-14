@@ -26,6 +26,18 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.create(order_params)
 
+    item_fields = %w(item_1 item_2 item_3 item_4 item_5)
+    items = []
+    item_fields.each do |item_name|
+      text_field_name = item_name + '_text'
+      items << (params['order'][item_name].size > params['order'][text_field_name].size ?
+          params['order'][item_name] : params['order'][text_field_name])
+    end
+
+    items.each do |item|
+      @order.items << Item.find_or_create_by(name: item) if item.size > 0
+    end
+
     if @order.save
       points_difference = current_user.points - @order.points
       current_user.update_attribute(:points, points_difference)
@@ -54,7 +66,7 @@ class OrdersController < ApplicationController
       flash[:alert] = "Can't do that"
     end
     redirect_to params[:continue_to] || orders_path
-    end
+  end
 
   # Shows only current user's order
   def myorders
