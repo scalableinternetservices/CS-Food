@@ -88,6 +88,7 @@ class OrdersController < ApplicationController
   def myhistory
     @my_orders = Order.where(user_id: current_user.id).where("delivered_at IS NOT NULL")
     @my_picks = Order.where(deliverer_id: current_user.id).where("delivered_at IS NOT NULL")
+  end
 
   def receive
     @order = Order.find(params[:id])
