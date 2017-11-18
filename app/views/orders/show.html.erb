@@ -32,5 +32,12 @@
   <% end %>
 </p>
 
+
+<p> ITEMS YO</p>
+  <% @items.each do |item| %>
+    <p><%= item.name %></p>
+  <% end %>
+  </tbody>
+
 <%= link_to 'Edit', edit_order_path(@order), {:class => 'btn btn-info', :role => 'button'} %>
 <%= link_to 'Back', orders_path, {:class => 'btn btn-info', :role => 'button'} %>
