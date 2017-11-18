@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
   # Show only one order
   def show
     @order = Order.find(params[:id])
+    @items = Item.joins("INNER JOIN order_items ON order_items.item_id = items.id AND order_items.order_id = " +
+                            params[:id].to_s)
   end
 
   def new
