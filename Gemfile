@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt', '~> 3.1.11'
 
+gem 'hirb'
+
 gem 'devise'
 gem 'validates_timeliness', '~> 4.0'
 

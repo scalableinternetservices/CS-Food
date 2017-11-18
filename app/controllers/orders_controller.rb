@@ -13,6 +13,13 @@ class OrdersController < ApplicationController
   # Show only one order
   def show
     @order = Order.find(params[:id])
+    @order_i = OrderItem.where(:order_id => @order.id).all
+    @selected_orders = @order_i.to_a
+    @items = []
+    @selected_orders.each do |k|
+      @item = Item.where(:id => k.item_id).first
+      @items << @item.name
+    end
   end
 
   def new
