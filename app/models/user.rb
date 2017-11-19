@@ -31,6 +31,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
   has_many :orders, dependent: :destroy
+  has_many :items
 
   has_attached_file :avatar, {validate_media_type: false, s3_protocol: :https}
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

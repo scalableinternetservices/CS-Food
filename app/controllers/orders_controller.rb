@@ -37,7 +37,9 @@ class OrdersController < ApplicationController
     end
 
     items.each do |item|
-      @order.items << Item.find_or_create_by(name: item) if item.size > 0
+      new_item = Item.find_or_create_by(name: item)
+      new_item.users_id = current_user.id
+      @order.items << new_item if item.size > 0
     end
 
     if @order.save

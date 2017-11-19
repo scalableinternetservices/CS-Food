@@ -17,6 +17,6 @@ class UsersController < ApplicationController
   end
 
   def myfavorites
-
+    @items = Item.where(users_id: current_user.id)
   end
 end
