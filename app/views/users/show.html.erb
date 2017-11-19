@@ -1,9 +1,9 @@
-<h1>Your Profile</h1>
+<h1><%= @user.username %>'s profile</h1>
 
 <%= image_tag @user.avatar.url, {id: 'profile-pic'} %>
 
 <p>
-  <strong>User Email:</strong>
+  <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
@@ -35,3 +35,6 @@
 
 <%= link_to "All Users' Profiles", users_path, {:class => 'btn btn-info', :role => 'button'}%>
 <%= link_to 'Home', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'My favorites', {controller: 'users', action: 'myfavorites'}, {:class => 'btn btn-info', :role => 'button'} %>
+<% end %>

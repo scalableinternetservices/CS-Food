@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
 
-  resources :users, controllers: {registrations: "registrations"}
+  resources :users, controllers: {registrations: "registrations"} do
+    member do
+      get 'myfavorites'
+    end
+  end
 
   resources :orders do
     collection do
