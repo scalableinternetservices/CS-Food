@@ -1,8 +1,8 @@
 namespace :manyusers do
   task create: :environment do
-    num_users = 1000
+    num_users = 10000
 
-    chunk = 20
+    chunk = 100
     iterations = num_users / chunk
 
     iterations.times do |i|
