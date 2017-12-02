@@ -32,9 +32,8 @@ class OrdersController < ApplicationController
     items = []
     item_fields.each do |item_name|
       text_field_name = item_name + '_text'
-      if params['order'][item_name]
-        items << (params['order'][item_name].size > params['order'][text_field_name].size ?
-                      params['order'][item_name] : params['order'][text_field_name])
+      if params['order'][text_field_name]
+        items << params['order'][text_field_name]
       end
     end
 

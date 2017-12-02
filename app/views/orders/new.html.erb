@@ -27,33 +27,27 @@
 
     <p>
       <%= form.label :first_item %>
-      <%= form.select :item_1, Item.all.pluck(:name), :prompt => 'Select One' %><br>
-    <p>'Or Enter A New Item!'</p>
-      <%= form.text_field :item_1_text %>
+      <%= form.text_field :item_1_text, id: 'item_1_text' %>
     </p>
 
     <p>
       <%= form.label :second_item %>
-      <%= form.select :item_2, Item.all.pluck(:name), :prompt => 'Select One' %><br>
-      <%= form.text_field :item_2_text %>
+      <%= form.text_field :item_2_text, id: 'item_2_text' %>
     </p>
 
     <p>
       <%= form.label :third_item %>
-      <%= form.select :item_3, Item.all.pluck(:name), :prompt => 'Select One' %><br>
-      <%= form.text_field :item_3_text %>
+      <%= form.text_field :item_3_text, id: 'item_3_text' %>
     </p>
 
     <p>
       <%= form.label :fourth_item %>
-      <%= form.select :item_4, Item.all.pluck(:name), :prompt => 'Select One' %><br>
-      <%= form.text_field :item_4_text %>
+      <%= form.text_field :item_4_text, id: 'item_4_text' %>
     </p>
 
     <p>
       <%= form.label :fifth_item %>
-      <%= form.select :item_5, Item.all.pluck(:name), :prompt => 'Select One' %><br>
-      <%= form.text_field :item_5_text %>
+      <%= form.text_field :item_5_text, id: 'item_5_text' %>
     </p>
 
     <p>
@@ -66,3 +60,22 @@
     </p>
 <% end %>
 <%= link_to 'Cancel', orders_path, {:class => 'btn btn-info', :role => 'button'} %>
+
+<script>
+    function setup_autocomplete(str) {
+        $("#" + str).on("input", function () {
+            var text = $("#" + str).val();
+
+            $.ajax({
+                method: "GET",
+                url: "/items/search/" + text
+            }).done(function (msg) {
+                $("#" + str).autocomplete({source: msg.items});
+            });
+        });
+    }
+
+    for(var i = 1; i <= 5; i++){
+        setup_autocomplete("item_" + i + "_text");
+    }
+</script>
