@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   # Only shows orders that are not fulfilled
   def index
-    @orders = Order.where("deliverer_id IS NULL")
+    @orders = Order.where("deliverer_id IS NULL").paginate(page: params[:page], per_page: 5)
   end
 
   # Show all the orders that are not fulfilled (UNUSED)

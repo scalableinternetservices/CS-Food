@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
 gem 'bcrypt', '~> 3.1.11'
 
 gem 'devise'
@@ -38,6 +39,8 @@ gem 'paperclip'
 gem 'aws-sdk', '<10.3'
 
 gem 'pry'
+
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -63,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'pg'
 end
+
