@@ -17,7 +17,7 @@ module CSFood
       rescue ActiveRecord::NoDatabaseError
       else
         if ActiveRecord::Base.connection.table_exists? 'users'
-          unless User.find_by(username: 'testuser')
+          unless User.find_by(username: 'testuser1')
             u = User.create(username: 'testuser1', email: 'user1@gmail.com', password: 'test1234', first_name: 'testuse', last_name: 'testuser', birthday: '1900/01/01', phone_number: '456-456-4567')
             u.orders.create(title: 'testorder', text: 'This is an order', points: 2)
             u = User.create(username: 'testuser2', email: 'user2@gmail.com', password: 'test1234', first_name: 'testuse', last_name: 'testuser', birthday: '1900/01/01', phone_number: '456-456-4567')
