@@ -22,6 +22,9 @@
     link_to('Back to Profile', current_user, {:class => 'btn btn-info', :role => 'button'})
   end
 %>
+<br/>
 <%= link_to 'Home', home_index_path, {:class => 'btn btn-info', :role => 'button'} %>
+<br/>
+<%= will_paginate @products %>
 
 <%#= link_to 'Edit', edit_user_path(@user), {:class => 'btn btn-info', :role => 'button'} %>

@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   # Only shows orders that are not fulfilled
   def index
-    @orders = Order.where("deliverer_id IS NULL")
+    @orders = Order.where("deliverer_id IS NULL").paginate(page: params[:page], per_page: 5)
   end
 
   # Show all the orders that are not fulfilled (UNUSED)
@@ -74,11 +74,11 @@ class OrdersController < ApplicationController
 
   # Shows only current user's order
   def myorders
-    @orders = current_user.orders.where(delivered_at: nil)
+    @orders = current_user.orders.where(delivered_at: nil).paginate(page: params[:page], per_page: 5)
   end
 
   def mypicks
-    @orders = Order.where(deliverer_id: current_user.id, delivered_at: nil)
+    @orders = Order.where(deliverer_id: current_user.id, delivered_at: nil).paginate(page: params[:page], per_page: 5)
   end
 
   # Optimistic update
@@ -90,8 +90,8 @@ class OrdersController < ApplicationController
   end
 
   def myhistory
-    @my_orders = Order.where(user_id: current_user.id).where("delivered_at IS NOT NULL")
-    @my_picks = Order.where(deliverer_id: current_user.id).where("delivered_at IS NOT NULL")
+    @my_orders = Order.where(user_id: current_user.id).where("delivered_at IS NOT NULL").paginate(page: params[:page], per_page: 5)
+    @my_picks = Order.where(deliverer_id: current_user.id).where("delivered_at IS NOT NULL").paginate(page: params[:page], per_page: 5)
   end
 
   def receive
