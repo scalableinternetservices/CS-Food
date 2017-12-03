@@ -4,8 +4,7 @@ class Order < ApplicationRecord
   belongs_to :user
   delegate :username, to: :user, prefix: true
 
-  validates :title, presence: true,
-            length: { minimum: 5, maximum: 30 }
+  validates :title, presence: true
   validates :points, presence: true,
             numericality: { only_integer: true },
             numericality: { greater_than_or_equal_to: 0}

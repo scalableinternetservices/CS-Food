@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/items/search/:text', to: 'items#search'
+
   resources :items, except: [:destroy, :edit, :update]
   devise_for :users
   get 'home/index'
