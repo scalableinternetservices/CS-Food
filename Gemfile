@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 
 # Use Puma as the app server
 #gem 'puma', '~> 3.11.0'
-gem 'puma', github: 'puma/puma'
+gem 'puma', :git => 'https://github.com/puma/puma.git'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
