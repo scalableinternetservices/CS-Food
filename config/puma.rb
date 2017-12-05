@@ -23,8 +23,9 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 #
 workers ENV.fetch("WEB_CONCURRENCY") { 10 }
 #bind 'unix:///var/run/puma.sock?backlog=1024'
-bind "unix:///var/run/puma/my_app.sock?backlog=1024"
-pidfile "/var/run/puma/my_app.sock"
+bind 'tcp://127.0.0.1:9292'
+#bind "unix:///var/run/puma/my_app.sock?backlog=1024"
+#pidfile "/var/run/puma/my_app.sock"
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
 # before forking the application. This takes advantage of Copy On Write
